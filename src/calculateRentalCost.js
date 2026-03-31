@@ -4,14 +4,19 @@
  * @return {number}
  */
 function calculateRentalCost(days) {
-  const totalRentCount = days * 40;
+  const DAILY_RENT_PRICE = 40;
+  const SHORT_TERM = 20;
+  const SHORT_TERM_DISCOUNT = 3;
+  const LONG_TERM = 7;
+  const LONG_TERM_DISCOUNT = 50;
+  const totalRentCount = days * DAILY_RENT_PRICE;
 
-  if (days >= 7) {
-    return totalRentCount - 50;
+  if (days >= LONG_TERM) {
+    return totalRentCount - LONG_TERM_DISCOUNT;
   }
 
-  if (days >= 3) {
-    return totalRentCount - 20;
+  if (days >= SHORT_TERM_DISCOUNT) {
+    return totalRentCount - SHORT_TERM;
   }
 
   return totalRentCount;
